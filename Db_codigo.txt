@@ -1,0 +1,44 @@
+Olá Usuário, prazer, me chamo Felippe e fico feliz que você teste a minha API básica:
+
+Para utilizar é simples, abra seu workbench ou onde você desejar criar o banco, copie esse código, cole e execute ele:
+
+create database security_lab;
+
+use security_lab;
+
+Create Table users (
+id INT AUTO_INCREMENT Primary Key,
+name Varchar(80) Not Null, 
+email Varchar(120) Not NUll Unique, 
+password_hash varchar(255) Not Null,
+created_at TimeStamp Default CURRENT_TIMESTAMP
+); 
+
+-- Tabela de Usuarios
+
+select * from users;
+
+Create Table demo_hashes (
+id INT AUTO_INCREMENT Primary Key,
+user_id Int Not Null,
+algo ENUM('md5', 'sha1') Not Null,
+hash_value Varchar(255) Not Null,
+hint Varchar(255) Null,
+created_at TimeStamp Default CURRENT_TIMESTAMP,
+Foreign Key (user_id) References users(id) On Delete Cascade
+);
+
+-- Tabela dos hashes
+
+select * from demo_hashed;
+
+CREATE TABLE demo_attempts (
+  id INT AUTO_INCREMENT Primary Key,
+  ip Varchar(64) Not Null,
+  endpoint VARCHAR(80) Not Null,
+  created_at TimeStamp Default CURRENT_TIMESTAMP
+);
+
+-- logs de tentativas pra rate limit simples
+
+select * from demo_attempts;
