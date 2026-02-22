@@ -82,19 +82,21 @@ Tecnologias Utilizadas
 
 Estrutura do Projeto
 
-public/
- ├── index.php (API)
- └── test-ui/
-      ├── index.html
-      ├── explicacao.html
-      ├── style.css
-      └── script.js
- └── src/    
-      ├──AuthController.php
-      ├──db.php
-      ├──DemoController.php
-      ├──Responde.php
-      ├──Router.php
+projeto/
+├── public/
+│   ├── index.php (API)
+│   └── test-ui/
+│       ├── index.html
+│       ├── explicacao.html
+│       ├── style.css
+│       └── script.js
+│
+└── src/
+    ├── AuthController.php
+    ├── db.php
+    ├── DemoController.php
+    ├── Responde.php
+    └── Router.php
 
 ---
 
