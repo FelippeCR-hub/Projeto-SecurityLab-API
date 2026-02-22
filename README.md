@@ -82,6 +82,7 @@ Tecnologias Utilizadas
 
 Estrutura do Projeto
 
+```
 projeto/
 ├── public/
 │   ├── index.php (API)
@@ -97,7 +98,7 @@ projeto/
     ├── DemoController.php
     ├── Responde.php
     └── Router.php
-
+```
 ---
 
 Como Executar
