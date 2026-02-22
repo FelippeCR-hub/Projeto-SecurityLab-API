@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Security Lab API — Passo a passo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand__title">Security Lab API</div>
+      <div class="brand__sub">Guia completo para testar a API (Home + Laboratório)</div>
+    </div>
+    <nav class="nav">
+      <a class="nav__link" href="./index.html">Home</a>
+      <a class="nav__link nav__link--active" href="./explicacao.html">Passo a passo</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <div class="card__head">
+      <h1>Passo a passo (do zero até os testes)</h1>
+      <p style="color:#94a3b8; margin-top:6px">
+        Aqui você aprende a rodar o servidor, abrir a interface e testar cada parte da API.
+        Eu também deixo exemplos do que deve aparecer quando estiver tudo certo.
+      </p>
+    </div>
+
+    <div class="content">
+      <h2>1) Primeiro: inicie a API</h2>
+      <p>Abra o terminal na raiz do projeto (onde fica a pasta <code>public</code>) e rode:</p>
+      <pre><code>php -S localhost:8000 -t public</code></pre>
+      <p style="color:#94a3b8">
+        Se estiver correto, você vai ver algo como <em>"Development Server started"</em> e o terminal vai ficar “rodando”.
+        <br /> Não feche esse terminal enquanto estiver testando.
+      </p>
+
+      <hr />
+
+      <h2>2) Abra a interface de teste</h2>
+      <p>No navegador, abra:</p>
+      <pre><code>http://localhost:8000/test-ui/index.html</code></pre>
+      <p style="color:#94a3b8">
+        Se carregar a página com os formulários (Registro, Login, Demo etc.), está tudo certo.
+      </p>
+
+      <hr />
+
+      <h2>3) Fluxo seguro (o “modo real”)</h2>
+      <p>
+        Esta parte é como um sistema de verdade: a senha é salva como <strong>hash seguro</strong> (irreversível).
+        Ela não é “descriptografada”.
+      </p>
+
+      <h3>3.1 Testar Registro</h3>
+      <ol>
+        <li>No card <strong>Registro</strong>, preencha Nome, Email e Senha.</li>
+        <li>Clique em <strong>Registrar</strong>.</li>
+        <li>Veja o resultado na área <strong>Resposta da API</strong>.</li>
+      </ol>
+
+      <p><strong>Se estiver correto</strong>, deve aparecer algo parecido com:</p>
+      <pre><code>{
+  "ok": true,
+  "message": "Usuário registrado com hash seguro.",
+  "user_id": 1
+}</code></pre>
+
+      <p style="color:#94a3b8">
+         Guarde o <code>user_id</code>. Você vai usar ele no laboratório.
+        <br /> Se você repetir o mesmo email, pode dar erro de email duplicado (normal).
+      </p>
+
+      <h3>3.2 Testar Login</h3>
+      <ol>
+        <li>No card <strong>Login</strong>, coloque o mesmo Email e Senha do registro.</li>
+        <li>Clique em <strong>Entrar</strong>.</li>
+      </ol>
+
+      <p><strong>Se estiver correto</strong>, a resposta deve parecer com:</p>
+      <pre><code>{
+  "ok": true,
+  "message": "Login OK",
+  "user": {
+    "id": 1,
+    "name": "Seu Nome"
+  }
+}</code></pre>
+
+      <p style="color:#94a3b8">
+         Isso confirma que o <code>password_verify</code> funcionou e que o hash está correto.
+      </p>
+
+      <hr />
+
+      <h2>4) Modo Laboratório (educativo)</h2>
+      <p>
+        Agora vem a parte “Security Lab”. Aqui você cria um <strong>hash fraco</strong> (MD5/SHA1) só para demonstração,
+        e testa ataques simulados de forma controlada.
+      </p>
+      <p style="color:#94a3b8">
+         Observação: isso é um laboratório. Em produção, você não usa MD5/SHA1 para senha.
+      </p>
+
+      <h3>4.1 Criar hash fraco (Demo)</h3>
+      <ol>
+        <li>No card <strong>Criar Hash Fraco (Demo)</strong>, preencha:</li>
+        <ul>
+          <li><strong>User ID</strong> = o <code>user_id</code> que você recebeu no registro</li>
+          <li><strong>Algo</strong> = MD5 ou SHA1</li>
+          <li><strong>Senha demo</strong> = coloque uma senha fraca (ex: <code>123456</code>)</li>
+        </ul>
+        <li>Clique em <strong>Criar Hash</strong>.</li>
+      </ol>
+
+      <p><strong>Se estiver correto</strong>, você vai receber algo parecido com:</p>
+      <pre><code>{
+  "ok": true,
+  "message": "Hash fraco criado para demonstração (não use isso em produção).",
+  "demo_hash_id": 1,
+  "algo": "md5",
+  "hash": "e10adc3949ba59abbe56e057f20f883e"
+}</code></pre>
+
+      <p style="color:#94a3b8">
+         Guarde o <code>demo_hash_id</code>. Ele é o “alvo” dos ataques de demo.
+      </p>
+
+      <h3>4.2 Rodar Ataque de Dicionário (Demo)</h3>
+      <ol>
+        <li>No card <strong>Ataque de Dicionário</strong>, preencha:</li>
+        <ul>
+          <li><strong>Demo Hash ID</strong> = o <code>demo_hash_id</code> que você recebeu</li>
+        </ul>
+        <li>Clique em <strong>Executar</strong>.</li>
+      </ol>
+
+      <p><strong>Se a senha demo estiver na wordlist do projeto</strong> (ex: <code>123456</code>), deve voltar:</p>
+      <pre><code>{
+  "ok": true,
+  "found": true,
+  "tries": 1,
+  "password_demo": "123456",
+  "note": "Encontrado via dicionário (demonstração)."
+}</code></pre>
+
+      <p style="color:#94a3b8">
+         Isso mostra que senhas comuns e hashes fracos são vulneráveis.
+        <br />Se voltar <code>"found": false</code>, significa que a senha demo não estava na lista de tentativas.
+      </p>
+
+      <hr />
+
+      <h2>5) O que fazer se aparecer erro</h2>
+
+      <h3> “404 Not Found”</h3>
+      <ul>
+        <li>Confirme se o servidor está rodando no terminal.</li>
+        <li>Confirme se você abriu exatamente: <code>http://localhost:8000/test-ui/index.html</code></li>
+      </ul>
+
+      <h3> “400 Bad Request”</h3>
+      <ul>
+        <li>Normalmente significa campo faltando (nome/email/senha vazios).</li>
+        <li>Preencha todos os campos e tente de novo.</li>
+      </ul>
+
+      <h3> Erro de banco (MySQL)</h3>
+      <ul>
+        <li>Confira se o MySQL está ligado.</li>
+        <li>Confira se o banco <code>security_lab</code> existe.</li>
+        <li>Confira as credenciais em <code>src/db.php</code>.</li>
+      </ul>
+
+      <hr />
+
+      <h2>6) Endpoints da API (referência rápida)</h2>
+      <ul>
+        <li><code>POST /auth/register</code> — registra usuário com hash seguro</li>
+        <li><code>POST /auth/login</code> — login com password_verify</li>
+        <li><code>POST /demo/create-weak-hash</code> — cria hash fraco (MD5/SHA1) para laboratório</li>
+        <li><code>POST /demo/attack-dictionary</code> — simula ataque por dicionário (wordlist)</li>
+      </ul>
+
+      <p style="color:#94a3b8; margin-top:18px">
+        Feito por <strong>Felippe Santos</strong> — projeto educativo para portfólio de backend.
+      </p>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

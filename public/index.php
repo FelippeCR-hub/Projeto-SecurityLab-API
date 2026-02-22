@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/../src/db.php';
-require __DIR__ . '/../src/Response.php';
+require __DIR__ . '/../src/Responde.php';
 require __DIR__ . '/../src/AuthController.php';
 require __DIR__ . '/../src/DemoController.php';
 

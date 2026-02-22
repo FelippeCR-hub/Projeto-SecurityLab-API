@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Security Lab API — Test UI</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand__title">Security Lab API</div>
+      <div class="brand__sub">Interface para testar a API</div>
+    </div>
+    <nav class="nav">
+      <a class="nav__link nav__link--active" href="./index.html">Home</a>
+      <a class="nav__link" href="./explicacao.html">Passo a passo</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap grid">
+
+<section class="card">
+  <div class="card__head">
+    <h2>Registro</h2>
+  </div>
+  <form id="formRegister">
+    <input name="name" placeholder="Nome" required />
+    <input name="email" type="email" placeholder="Email" required />
+    <input name="password" type="password" placeholder="Senha" required />
+    <button type="submit">Registrar</button>
+  </form>
+</section>
+
+<section class="card">
+  <div class="card__head">
+    <h2>Login</h2>
+  </div>
+  <form id="formLogin">
+    <input name="email" type="email" placeholder="Email" required />
+    <input name="password" type="password" placeholder="Senha" required />
+    <button type="submit">Entrar</button>
+  </form>
+</section>
+
+<section class="card">
+  <div class="card__head">
+    <h2>Criar Hash Fraco (Demo)</h2>
+  </div>
+  <form id="formWeakHash">
+    <input name="user_id" placeholder="User ID" required />
+    <select name="algo">
+      <option value="md5">MD5</option>
+      <option value="sha1">SHA1</option>
+    </select>
+    <input name="demo_password" placeholder="Senha demo" required />
+    <button type="submit">Criar Hash</button>
+  </form>
+</section>
+
+<section class="card">
+  <div class="card__head">
+    <h2>Ataque de Dicionário</h2>
+  </div>
+  <form id="formDict">
+    <input name="demo_hash_id" placeholder="Demo Hash ID" required />
+    <button type="submit">Executar</button>
+  </form>
+</section>
+
+<section class="card">
+  <div class="card__head">
+    <h2>Resposta da API</h2>
+  </div>
+  <pre id="response"></pre>
+</section>
+
+</main>
+
+<script src="./script.js"></script>
+</body>
+</html>
