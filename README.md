@@ -1,16 +1,16 @@
-# 🔐 Security Lab API — Autenticação e Demonstração de Vulnerabilidades
+Security Lab API — Autenticação e Demonstração de Vulnerabilidades
 
 Este projeto é uma API desenvolvida em PHP + MySQL com foco em dois objetivos principais:
 
 1. Ensino e conscientização sobre segurança em autenticação
 2. Demonstrar, de forma prática e controlada, a facilidade em quebrar senhas fracas
 
-⚠️ Este projeto é exclusivamente educativo.
+Este projeto é exclusivamente educativo.
 Ele não incentiva invasões, mas sim mostra como ataques simples funcionam para reforçar a importância de boas práticas.
 
 ---
 
-# 🎯 Objetivo do Projeto
+ Objetivo do Projeto
 
 O principal objetivo deste projeto é mostrar que:
 
@@ -39,9 +39,9 @@ O que foi demonstrado aqui é apenas o nível mais básico.
 
 ---
 
-# 🧠 Conceitos Demonstrados
+Conceitos Demonstrados
 
-## ✅ Fluxo Seguro (Modo Produção)
+Fluxo Seguro (Modo Produção)
 
 - Registro com password_hash
 - Verificação com password_verify
@@ -70,7 +70,7 @@ Isso mostra como:
 
 ---
 
-# 🚀 Tecnologias Utilizadas
+Tecnologias Utilizadas
 
 - PHP 8+
 - MySQL
@@ -80,7 +80,7 @@ Isso mostra como:
 
 ---
 
-# 📦 Estrutura do Projeto
+Estrutura do Projeto
 
 public/
  ├── index.php (API)
@@ -98,7 +98,7 @@ public/
 
 ---
 
-# ▶️ Como Executar
+Como Executar
 
 ## 1️⃣ Criar banco de dados
 
@@ -120,7 +120,7 @@ http://localhost:8000/test-ui/index.html
 
 ---
 
-# 🔬 O que este projeto prova
+O que este projeto prova
 
 Este projeto deixa claro que:
 
@@ -134,7 +134,7 @@ imagine um ataque profissional.
 
 ---
 
-# ⚠️ Aviso Importante
+Aviso Importante
 
 Este laboratório:
 
@@ -147,7 +147,7 @@ O foco é educação, conscientização e demonstração técnica para portfóli
 
 ---
 
-# 👨‍💻 Autor
+Autor
 
 Desenvolvido por Felippe Oliveira
 Projeto educacional voltado para demonstração de conceitos de segurança e autenticação em backend.
