@@ -53,7 +53,7 @@ Esse é o padrão correto.
 
 ---
 
-## 🧪 Modo Laboratório (Demonstração)
+Modo Laboratório (Demonstração)
 
 Para fins educativos, o sistema permite:
 
