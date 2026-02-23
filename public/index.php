@@ -3,6 +3,8 @@ require __DIR__ . '/../src/db.php';
 require __DIR__ . '/../src/Responde.php';
 require __DIR__ . '/../src/AuthController.php';
 require __DIR__ . '/../src/DemoController.php';
+require __DIR__ . '/../src/Router.php';
+
 
 $method = $_SERVER['REQUEST_METHOD'];
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
