@@ -68,9 +68,38 @@ class DemoController {
     $target = $row['hash_value'];
 
     $wordlist = [
-      '123456', 'senha123', 'password', 'admin', 'qwerty',
-      'felippe', 'brasil', 'abc123', '111111', '0000'
-    ];
+    '123456',
+    '12345678',
+    '123456789',
+    '123123',
+    '111111',
+    '000000',
+    '1234',
+    '0000',
+    'senha',
+    'senha123',
+    'senh@123',
+    'password',
+    'admin',
+    'admin123',
+    'qwerty',
+    'qwerty123',
+    'abc123',
+    'abcdef',
+    'brasil',
+    'brasil123',
+    'teste',
+    'teste123',
+    'user',
+    'root',
+    '123qwe',
+    'qwe123',
+    '654321',
+    '987654',
+    'letmein',
+    'welcome',
+    'iloveyou'
+];
 
     $tries = 0;
     foreach ($wordlist as $candidate) {
