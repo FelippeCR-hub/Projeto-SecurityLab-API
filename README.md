@@ -2,15 +2,15 @@ Security Lab API — Autenticação e Demonstração de Vulnerabilidades
 
 Este projeto é uma API desenvolvida em PHP + MySQL com foco em dois objetivos principais:
 
-1. Ensino e conscientização sobre segurança em autenticação
-2. Demonstrar, de forma prática e controlada, a facilidade em quebrar senhas fracas
+1. Ensinar, de um jeito simples, o básico de segurança em autenticação
+2. Mostrar, de forma prática e controlada, como senhas fracas podem ser quebradas rápido
 
-Este projeto é exclusivamente educativo.
-Ele não incentiva invasões, mas sim mostra como ataques simples funcionam para reforçar a importância de boas práticas.
+Este projeto é exclusivamente educativo.  
+Ele não incentiva invasões, e sim explica como ataques simples funcionam para reforçar a importância de boas práticas.
 
 ---
 
- Objetivo do Projeto
+Objetivo do Projeto
 
 O principal objetivo deste projeto é mostrar que:
 
@@ -25,7 +25,7 @@ Podem ser facilmente descobertas com ataques simples como:
 - Força bruta limitada
 - Exploração de hash fraco (MD5 / SHA1)
 
-Este laboratório simula um ataque fraco e controlado.
+Este laboratório simula um ataque fraco e controlado, justamente para ficar claro o que acontece quando a base da segurança é ruim.
 
 Agora imagine um atacante experiente que:
 
@@ -35,7 +35,7 @@ Agora imagine um atacante experiente que:
 - Realiza engenharia social
 - Executa ataques distribuídos
 
-O que foi demonstrado aqui é apenas o nível mais básico.
+O que foi demonstrado aqui é apenas o começo.
 
 ---
 
@@ -127,12 +127,12 @@ O que este projeto prova
 
 Este projeto deixa claro que:
 
-- Segurança não depende apenas de tecnologia
+- Segurança não depende só de tecnologia
 - Depende principalmente da qualidade das senhas
-- Hash fraco + senha fraca = desastre
+- Hash fraco + senha fraca = problema rápido
 - Ataques simples já são suficientes para comprometer dados
 
-Se um ataque básico consegue descobrir a senha em poucos segundos,
+Se um ataque básico consegue descobrir a senha em poucos segundos,  
 imagine um ataque profissional.
 
 ---
@@ -152,5 +152,5 @@ O foco é educação, conscientização e demonstração técnica para portfóli
 
 Autor
 
-Desenvolvido por Felippe Oliveira
+Desenvolvido por Felippe Oliveira  
 Projeto educacional voltado para demonstração de conceitos de segurança e autenticação em backend.
