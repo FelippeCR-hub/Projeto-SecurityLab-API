@@ -107,9 +107,9 @@
          Observação: isso é um laboratório. Em produção, você não usa MD5/SHA1 para senha.
       </p>
 
-      <h3>4.1 Criar hash fraco (Demo)</h3>
+      <h3>4.1 Criar hash fraco </h3>
       <ol>
-        <li>No card <strong>Criar Hash Fraco (Demo)</strong>, preencha:</li>
+        <li>No card <strong>Criar Hash Fraco </strong>, preencha:</li>
         <ul>
           <li><strong>User ID</strong> = o <code>user_id</code> que você recebeu no registro</li>
           <li><strong>Algo</strong> = MD5 ou SHA1</li>
@@ -131,9 +131,9 @@
          Guarde o <code>demo_hash_id</code>. Ele é o “alvo” dos ataques de demo.
       </p>
 
-      <h3>4.2 Rodar Ataque de Dicionário (Demo)</h3>
+      <h3>4.2 Rodar Ataque de dictionary attack</h3>
       <ol>
-        <li>No card <strong>Ataque de Dicionário</strong>, preencha:</li>
+        <li>No card <strong>Ataque de dictionary attack</strong>, preencha:</li>
         <ul>
           <li><strong>Demo Hash ID</strong> = o <code>demo_hash_id</code> que você recebeu</li>
         </ul>
@@ -146,7 +146,7 @@
   "found": true,
   "tries": 1,
   "password_demo": "123456",
-  "note": "Encontrado via dicionário (demonstração)."
+  "note": "Encontrado via dictionary attack"
 }</code></pre>
 
       <p style="color:#94a3b8">
@@ -184,7 +184,7 @@
         <li><code>POST /auth/register</code> — registra usuário com hash seguro</li>
         <li><code>POST /auth/login</code> — login com password_verify</li>
         <li><code>POST /demo/create-weak-hash</code> — cria hash fraco (MD5/SHA1) para laboratório</li>
-        <li><code>POST /demo/attack-dictionary</code> — simula ataque por dicionário (wordlist)</li>
+        <li><code>POST /demo/attack-dictionary</code> — simula ataque por dictionary attack (wordlist)</li>
       </ul>
 
       <p style="color:#94a3b8; margin-top:18px">

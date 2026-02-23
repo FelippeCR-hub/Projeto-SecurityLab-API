@@ -11,12 +11,18 @@ class Router
 
     public function dispatch(string $method, string $path): void
     {
-        if (isset($this->routes[$method][$path])) {
-            call_user_func($this->routes[$method][$path]);
+        $handler = $this->routes[$method][$path] ?? null;
+
+        if ($handler) {
+            call_user_func($handler);
             return;
         }
 
         http_response_code(404);
-        echo json_encode(['error' => 'Rota não encontrada']);
+
+        echo json_encode(
+            ['error' => 'Não encontrei essa rota, verifique o método e o caminho'],
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+        );
     }
 }
